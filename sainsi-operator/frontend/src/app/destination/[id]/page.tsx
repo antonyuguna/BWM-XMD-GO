@@ -16,8 +16,7 @@ import { QandA } from '@/components/destination/QandA';
 import { AIChatAssistant } from '@/components/destination/AIChatAssistant';
 
 export default function DestinationPage({ params }: { params: Promise<{ id: string }> }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { id } = use(params);
+  use(params);
 
   // In a real app, we would fetch the destination details, weather, etc., using React Query here.
   // For the UI build, we will pass down mock data to the components to establish the cinematic feel.
