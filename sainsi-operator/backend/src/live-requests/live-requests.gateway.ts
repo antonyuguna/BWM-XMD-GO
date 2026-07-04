@@ -15,7 +15,9 @@ import { LiveRequestsService } from './live-requests.service';
     origin: '*',
   },
 })
-export class LiveRequestsGateway implements OnGatewayConnection, OnGatewayDisconnect {
+export class LiveRequestsGateway
+  implements OnGatewayConnection, OnGatewayDisconnect
+{
   @WebSocketServer()
   server: Server;
 
@@ -40,17 +42,19 @@ export class LiveRequestsGateway implements OnGatewayConnection, OnGatewayDiscon
 
   @SubscribeMessage('accept_request')
   handleAcceptRequest(
-    @MessageBody() data: { requestId: string, operatorId: string },
+    @MessageBody() data: { requestId: string; operatorId: string },
     @ConnectedSocket() client: Socket,
   ) {
     // Process acceptance
-    this.server.to(`request_${data.requestId}`).emit('request_accepted', { operatorId: data.operatorId });
+    this.server
+      .to(`request_${data.requestId}`)
+      .emit('request_accepted', { operatorId: data.operatorId });
     return { event: 'request_accepted', status: 'success' };
   }
 
   // Called by other services to emit new requests to operators
   emitNewRequest(operatorIds: string[], requestData: any) {
-    operatorIds.forEach(id => {
+    operatorIds.forEach((id) => {
       this.server.to(`operator_${id}`).emit('request_created', requestData);
     });
   }

@@ -23,7 +23,9 @@ export class OperatorService {
   }
 
   async update(id: string, updateOperatorDto: any): Promise<Operator | null> {
-    return this.operatorModel.findByIdAndUpdate(id, updateOperatorDto, { new: true }).exec();
+    return this.operatorModel
+      .findByIdAndUpdate(id, updateOperatorDto, { new: true })
+      .exec();
   }
 
   async remove(id: string): Promise<Operator | null> {

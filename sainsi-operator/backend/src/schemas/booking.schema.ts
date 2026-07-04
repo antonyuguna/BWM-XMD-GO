@@ -29,10 +29,18 @@ export class Booking {
   @Prop({ required: true })
   totalPrice: number;
 
-  @Prop({ type: String, enum: ['pending', 'confirmed', 'cancelled', 'completed'], default: 'pending' })
+  @Prop({
+    type: String,
+    enum: ['pending', 'confirmed', 'cancelled', 'completed'],
+    default: 'pending',
+  })
   status: string;
 
-  @Prop({ type: String, enum: ['pending', 'paid', 'refunded'], default: 'pending' })
+  @Prop({
+    type: String,
+    enum: ['pending', 'paid', 'refunded'],
+    default: 'pending',
+  })
   paymentStatus: string;
 
   @Prop()

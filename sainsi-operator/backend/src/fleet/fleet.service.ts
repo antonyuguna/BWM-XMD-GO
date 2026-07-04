@@ -18,22 +18,30 @@ export class FleetService {
     await this.fleetModel.findOneAndUpdate(
       { operator: createVehicleDto.operator },
       { $push: { vehicles: vehicle._id } },
-      { upsert: true, new: true }
+      { upsert: true, new: true },
     );
 
     return vehicle;
   }
 
   async getOperatorFleet(operatorId: string): Promise<Fleet | null> {
-    return this.fleetModel.findOne({ operator: operatorId }).populate('vehicles').exec();
+    return this.fleetModel
+      .findOne({ operator: operatorId })
+      .populate('vehicles')
+      .exec();
   }
 
   async getVehicleDetails(id: string): Promise<Vehicle | null> {
     return this.vehicleModel.findById(id).exec();
   }
 
-  async updateVehicle(id: string, updateVehicleDto: any): Promise<Vehicle | null> {
-    return this.vehicleModel.findByIdAndUpdate(id, updateVehicleDto, { new: true }).exec();
+  async updateVehicle(
+    id: string,
+    updateVehicleDto: any,
+  ): Promise<Vehicle | null> {
+    return this.vehicleModel
+      .findByIdAndUpdate(id, updateVehicleDto, { new: true })
+      .exec();
   }
 
   async removeVehicle(id: string): Promise<any> {
@@ -41,7 +49,7 @@ export class FleetService {
     if (vehicle) {
       await this.fleetModel.findOneAndUpdate(
         { operator: vehicle.operator },
-        { $pull: { vehicles: vehicle._id } }
+        { $pull: { vehicles: vehicle._id } },
       );
     }
     return vehicle;
