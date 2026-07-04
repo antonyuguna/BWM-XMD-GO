@@ -82,10 +82,20 @@ export class Destination {
   @Prop([String])
   travelTips: string[];
 
-  @Prop([{ url: String, caption: String, photographer: String, location: String }])
-  imageGallery: { url: string; caption: string; photographer: string; location: string }[];
+  @Prop([
+    { url: String, caption: String, photographer: String, location: String },
+  ])
+  imageGallery: {
+    url: string;
+    caption: string;
+    photographer: string;
+    location: string;
+  }[];
 
-  @Prop({ type: { type: String, enum: ['Point'], default: 'Point' }, coordinates: { type: [Number] } })
+  @Prop({
+    type: { type: String, enum: ['Point'], default: 'Point' },
+    coordinates: { type: [Number] },
+  })
   location: {
     type: string;
     coordinates: number[]; // [longitude, latitude]

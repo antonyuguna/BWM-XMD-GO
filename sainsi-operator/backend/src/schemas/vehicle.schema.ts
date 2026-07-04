@@ -35,7 +35,11 @@ export class Vehicle {
   @Prop({ type: Boolean, default: false })
   driverIncluded: boolean;
 
-  @Prop({ type: String, enum: ['available', 'booked', 'maintenance', 'disabled'], default: 'available' })
+  @Prop({
+    type: String,
+    enum: ['available', 'booked', 'maintenance', 'disabled'],
+    default: 'available',
+  })
   availabilityStatus: string;
 }
 

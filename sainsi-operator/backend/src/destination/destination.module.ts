@@ -4,8 +4,14 @@ import { DestinationController } from './destination.controller';
 import { DestinationService } from './destination.service';
 import { Destination, DestinationSchema } from '../schemas/destination.schema';
 import { Experience, ExperienceSchema } from '../schemas/experience.schema';
-import { SafetyReport, SafetyReportSchema } from '../schemas/safety-report.schema';
-import { WeatherCache, WeatherCacheSchema } from '../schemas/weather-cache.schema';
+import {
+  SafetyReport,
+  SafetyReportSchema,
+} from '../schemas/safety-report.schema';
+import {
+  WeatherCache,
+  WeatherCacheSchema,
+} from '../schemas/weather-cache.schema';
 import { Question, QuestionSchema } from '../schemas/question.schema';
 import { Operator, OperatorSchema } from '../schemas/operator.schema';
 import { Review, ReviewSchema } from '../schemas/review.schema';
