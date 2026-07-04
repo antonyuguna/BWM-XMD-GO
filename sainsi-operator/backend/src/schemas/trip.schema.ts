@@ -20,7 +20,11 @@ export class Trip {
   @Prop()
   driverContact: string;
 
-  @Prop({ type: String, enum: ['scheduled', 'in_progress', 'completed', 'cancelled'], default: 'scheduled' })
+  @Prop({
+    type: String,
+    enum: ['scheduled', 'in_progress', 'completed', 'cancelled'],
+    default: 'scheduled',
+  })
   status: string;
 
   @Prop()

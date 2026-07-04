@@ -5,7 +5,12 @@ export type WeatherCacheDocument = WeatherCache & Document;
 
 @Schema({ timestamps: true })
 export class WeatherCache {
-  @Prop({ type: Types.ObjectId, ref: 'Destination', required: true, unique: true })
+  @Prop({
+    type: Types.ObjectId,
+    ref: 'Destination',
+    required: true,
+    unique: true,
+  })
   destination: Types.ObjectId;
 
   @Prop({ type: Object, required: true })
