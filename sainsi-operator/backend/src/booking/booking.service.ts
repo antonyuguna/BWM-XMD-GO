@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Booking, BookingDocument } from '../schemas/booking.schema';
@@ -25,16 +25,21 @@ export class BookingService {
   }
 
   async updateStatus(id: string, status: string): Promise<Booking | null> {
-    const booking = await this.bookingModel.findByIdAndUpdate(id, { status }, { new: true }).exec();
+    let booking = await this.bookingModel.findByIdAndUpdate(id, { status }, { new: true }).exec();
 
     if (booking && status === 'confirmed') {
-        // Automatically create a trip when a booking is confirmed
-        await this.tripModel.create({
-            booking: booking._id,
-            operator: booking.operator,
-            vehicle: booking.vehicle,
-            status: 'scheduled'
-        });
+        try {
+            // Automatically create a trip when a booking is confirmed
+            await this.tripModel.create({
+                booking: booking._id,
+                operator: booking.operator,
+                vehicle: booking.vehicle,
+                status: 'scheduled'
+            });
+        } catch (error) {
+            booking = await this.bookingModel.findByIdAndUpdate(id, { status: 'pending' }, { new: true }).exec();
+            throw new InternalServerErrorException('Failed to create trip for confirmed booking');
+        }
     }
 
     return booking;
