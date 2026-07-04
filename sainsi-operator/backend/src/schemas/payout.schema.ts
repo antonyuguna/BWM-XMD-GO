@@ -11,7 +11,11 @@ export class Payout {
   @Prop({ required: true })
   amount: number;
 
-  @Prop({ type: String, enum: ['pending', 'processing', 'completed', 'failed'], default: 'pending' })
+  @Prop({
+    type: String,
+    enum: ['pending', 'processing', 'completed', 'failed'],
+    default: 'pending',
+  })
   status: string;
 
   @Prop()

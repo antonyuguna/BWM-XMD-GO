@@ -14,7 +14,11 @@ export class User {
   @Prop({ required: true })
   passwordHash: string;
 
-  @Prop({ type: String, enum: ['tourist', 'operator', 'admin'], default: 'tourist' })
+  @Prop({
+    type: String,
+    enum: ['tourist', 'operator', 'admin'],
+    default: 'tourist',
+  })
   role: string;
 
   @Prop()

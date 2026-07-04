@@ -6,7 +6,9 @@ import { Operator, OperatorSchema } from '../schemas/operator.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Operator.name, schema: OperatorSchema }]),
+    MongooseModule.forFeature([
+      { name: Operator.name, schema: OperatorSchema },
+    ]),
   ],
   controllers: [OperatorController],
   providers: [OperatorService],

@@ -29,7 +29,11 @@ export class Operator {
   @Prop([String])
   operatingRegions: string[];
 
-  @Prop({ type: String, enum: ['pending', 'verified', 'rejected'], default: 'pending' })
+  @Prop({
+    type: String,
+    enum: ['pending', 'verified', 'rejected'],
+    default: 'pending',
+  })
   verificationStatus: string;
 
   @Prop([String])
