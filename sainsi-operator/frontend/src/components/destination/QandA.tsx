@@ -46,9 +46,19 @@ export function QandA() {
         <div key={q.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
           <div className="flex gap-4">
             <div className="flex flex-col items-center gap-1 text-gray-500">
-              <button className="hover:text-indigo-400"><ThumbsUp className="h-4 w-4" /></button>
+              <button
+                className="hover:text-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-sm transition-colors"
+                aria-label="Upvote question"
+              >
+                <ThumbsUp className="h-4 w-4" />
+              </button>
               <span className="text-sm font-medium">{q.upvotes}</span>
-              <button className="hover:text-red-400"><ThumbsDown className="h-4 w-4" /></button>
+              <button
+                className="hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 rounded-sm transition-colors"
+                aria-label="Downvote question"
+              >
+                <ThumbsDown className="h-4 w-4" />
+              </button>
             </div>
 
             <div className="flex-1">
