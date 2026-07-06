@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, ValidationPipe, UsePipes } from '@nestjs/common';
 import { BookingService } from './booking.service';
+import { CreateBookingDto } from './dto/create-booking.dto';
 
 @Controller('bookings')
 export class BookingController {
   constructor(private readonly bookingService: BookingService) {}
 
   @Post()
-  create(@Body() createBookingDto: any) {
+  @UsePipes(new ValidationPipe({ whitelist: true }))
+  create(@Body() createBookingDto: CreateBookingDto) {
     return this.bookingService.create(createBookingDto);
   }
 
