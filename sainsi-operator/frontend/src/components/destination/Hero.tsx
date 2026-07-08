@@ -40,10 +40,10 @@ export function Hero() {
             </div>
 
             <div className="flex gap-3">
-              <button className="p-3 bg-black/30 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 transition">
+              <button aria-label="Save to favorites" className="p-3 bg-black/30 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
                 <Heart className="h-5 w-5" />
               </button>
-              <button className="p-3 bg-black/30 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 transition">
+              <button aria-label="Share destination" className="p-3 bg-black/30 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">
                 <Share2 className="h-5 w-5" />
               </button>
             </div>
