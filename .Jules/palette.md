@@ -1,0 +1,3 @@
+## 2024-07-10 - Accessibility for Icon-only Buttons
+**Learning:** Found a recurring pattern of missing `aria-label`s and `focus-visible` styles on icon-only buttons across the application (e.g. `AIChatAssistant.tsx`, `QandA.tsx`, `Hero.tsx`). This significantly degrades screen reader and keyboard navigation experiences.
+**Action:** Always add descriptive `aria-label`s and appropriate Tailwind `focus-visible` utility classes (e.g. `focus-visible:ring-2`, `focus-visible:outline-none`) to any interactive element that lacks text content.

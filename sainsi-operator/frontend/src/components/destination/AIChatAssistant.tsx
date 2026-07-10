@@ -11,9 +11,10 @@ export function AIChatAssistant() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-indigo-500 transition-transform hover:scale-105 z-50 flex items-center justify-center"
+        className="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-indigo-500 transition-transform hover:scale-105 z-50 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
+        aria-label="Open AI chat assistant"
       >
-        <Sparkles className="h-6 w-6" />
+        <Sparkles className="h-6 w-6" aria-hidden="true" />
       </button>
 
       <AnimatePresence>
@@ -26,11 +27,15 @@ export function AIChatAssistant() {
           >
             <div className="p-4 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
               <div className="flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-indigo-400" />
+                <Sparkles className="h-5 w-5 text-indigo-400" aria-hidden="true" />
                 <h3 className="font-semibold text-white">SAINSI Assistant</h3>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
-                <X className="h-5 w-5" />
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-gray-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 rounded-md p-0.5"
+                aria-label="Close AI chat assistant"
+              >
+                <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
 
@@ -45,10 +50,14 @@ export function AIChatAssistant() {
                 <input
                   type="text"
                   placeholder="Ask me anything..."
-                  className="w-full bg-black border border-gray-700 rounded-full py-2.5 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-indigo-500"
+                  aria-label="Message"
+                  className="w-full bg-black border border-gray-700 rounded-full py-2.5 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800"
                 />
-                <button className="absolute right-2 top-2 p-1 text-indigo-400 hover:text-indigo-300">
-                  <Send className="h-4 w-4" />
+                <button
+                  className="absolute right-2 top-2 p-1 text-indigo-400 hover:text-indigo-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-md"
+                  aria-label="Send message"
+                >
+                  <Send className="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
             </div>
