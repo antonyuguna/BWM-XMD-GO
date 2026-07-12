@@ -1,0 +1,3 @@
+## 2025-01-20 - AIChatAssistant Accessibility Enhancements
+**Learning:** Found a recurring pattern in `AIChatAssistant.tsx` where icon-only buttons lacked `aria-label`s for screen readers and did not have distinct `focus-visible` styles for keyboard navigation.
+**Action:** Added `aria-label`s and `focus-visible:ring-2` to all icon-only interactive elements to ensure full keyboard and screen reader accessibility going forward.
