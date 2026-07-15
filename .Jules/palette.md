@@ -1,0 +1,3 @@
+## 2024-05-18 - Missing ARIA labels and focus indicators on icon-only buttons
+**Learning:** Icon-only buttons (like floating action buttons and close buttons) frequently lack accessibility labels and keyboard focus indicators (`focus-visible`) in the codebase, leading to poor screen reader experiences and invisible keyboard navigation.
+**Action:** Always add descriptive `aria-label` attributes and Tailwind `focus-visible:ring-2` (along with `focus-visible:outline-none`) classes to icon-only buttons to ensure they are accessible to all users. Also ensure inputs have `aria-label` when visual labels are missing.
