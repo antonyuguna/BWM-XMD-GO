@@ -67,7 +67,10 @@ export default function FleetManagement() {
                   )}
                 </td>
                 <td className="px-6 py-4 text-right">
-                  <button className="p-1.5 text-gray-500 hover:text-white hover:bg-gray-800 rounded-md transition-colors">
+                  <button
+                    aria-label={`Vehicle actions for ${vehicle.name}`}
+                    className="p-1.5 text-gray-500 hover:text-white hover:bg-gray-800 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  >
                     <MoreHorizontal className="h-5 w-5" />
                   </button>
                 </td>
