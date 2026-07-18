@@ -10,8 +10,9 @@ export function AIChatAssistant() {
   return (
     <>
       <button
+        aria-label="Open AI Assistant"
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-indigo-500 transition-transform hover:scale-105 z-50 flex items-center justify-center"
+        className="fixed bottom-6 right-6 p-4 bg-indigo-600 text-white rounded-full shadow-2xl hover:bg-indigo-500 transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-indigo-500 z-50 flex items-center justify-center"
       >
         <Sparkles className="h-6 w-6" />
       </button>
@@ -29,7 +30,11 @@ export function AIChatAssistant() {
                 <Sparkles className="h-5 w-5 text-indigo-400" />
                 <h3 className="font-semibold text-white">SAINSI Assistant</h3>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
+              <button
+                aria-label="Close AI Assistant"
+                onClick={() => setIsOpen(false)}
+                className="text-gray-400 hover:text-white focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+              >
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -47,7 +52,10 @@ export function AIChatAssistant() {
                   placeholder="Ask me anything..."
                   className="w-full bg-black border border-gray-700 rounded-full py-2.5 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-indigo-500"
                 />
-                <button className="absolute right-2 top-2 p-1 text-indigo-400 hover:text-indigo-300">
+                <button
+                  aria-label="Send message"
+                  className="absolute right-2 top-2 p-1 text-indigo-400 hover:text-indigo-300 focus-visible:ring-2 focus-visible:ring-indigo-500 rounded"
+                >
                   <Send className="h-4 w-4" />
                 </button>
               </div>
